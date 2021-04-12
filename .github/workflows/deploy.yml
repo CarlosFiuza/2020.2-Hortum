@@ -1,9 +1,8 @@
 name: Deploy-Production
 on:
-  push:
-    branches:
-    - feature/92-editar-conta
-    - release/*
+  create:
+    tags:
+      - '*'
     
 jobs:
   deploy:
