@@ -1,9 +1,10 @@
 name: Deploy-Production
 on:
-  create:
-    branches: [feature/92-editar-conta]
-    tags:
-      - '*'
+  push:
+    branches:
+    - feature/92-editar-conta
+    - release/*
+    
 jobs:
   deploy:
     runs-on: ubuntu-latest
