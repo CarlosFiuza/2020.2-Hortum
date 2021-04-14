@@ -3,6 +3,9 @@ on:
   pull_request:
     branches:
       - main
+  push:
+    branches:
+      - main
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -22,4 +25,4 @@ jobs:
       - name: Create test environment
         run: docker-compose up -d --build
       - name: Run tests
-        run: docker exec 20202-hortum_web_1 bash -c "python manage.py test -v 2"
+        run: docker exec 20202-hortum_web_1 bash -c "coverage run manage.py test && coverage report -m && coverage erase"
